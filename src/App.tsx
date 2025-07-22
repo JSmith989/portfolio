@@ -1,36 +1,28 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { Suspense, lazy } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
+
+const AboutPage = lazy(() => import('./pages/about/AboutPage'));
+const PortfolioPage = lazy(() => import('./pages/portfolio/PortfolioPage'));
+const BlogPage = lazy(() => import('./pages/blog/BlogPage'));
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button
-          className='text-4xl font-bold text-green-600'
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar />
+
+      <main className='min-h-[calc(100vh-4rem)]'>
+        <Suspense fallback={<p className='p-6'>Loading…</p>}>
+          <Routes>
+            <Route index element={<Navigate to='/about' replace />} />
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/portfolio' element={<PortfolioPage />} />
+            <Route path='/blog/*' element={<BlogPage />} />
+            {/* catch-all */}
+            <Route path='*' element={<p className='p-6'>404 – Not Found</p>} />
+          </Routes>
+        </Suspense>
+      </main>
     </>
   );
 }
