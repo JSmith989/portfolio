@@ -1,33 +1,20 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
-  const link =
-    'px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700';
-  const active = 'bg-slate-200 dark:bg-slate-700';
-
   return (
-    <header className='bg-white/70 backdrop-blur dark:bg-slate-900/70'>
-      <nav className='mx-auto flex max-w-5xl items-center gap-4 p-4'>
-        <h1 className='mr-auto text-xl font-bold'>Jordan Smith</h1>
-
-        <NavLink
-          to='/about'
-          className={({ isActive }) => `${link} ${isActive ? active : ''}`}
-        >
-          About
-        </NavLink>
-        <NavLink
-          to='/portfolio'
-          className={({ isActive }) => `${link} ${isActive ? active : ''}`}
-        >
-          Portfolio
-        </NavLink>
-        <NavLink
-          to='/blog'
-          className={({ isActive }) => `${link} ${isActive ? active : ''}`}
-        >
-          Blog
-        </NavLink>
+    <header className='max-w-[90rem] sm:mx-20 mx-6 flex sm:justify-end justify-center'>
+      <nav className='py-8'>
+        <div className='px-6 space-x-12'>
+          <a href='#about' className='nav-link'>
+            About <span className='text-4xl text-primary'>.</span>
+          </a>
+          <a href='#projects' className='nav-link'>
+            Projects <span className='text-4xl text-primary'>.</span>
+          </a>
+          <a href='#blog' className='nav-link'>
+            Blog <span className='text-4xl text-primary'>.</span>
+          </a>
+        </div>
       </nav>
     </header>
   );
