@@ -10,37 +10,47 @@ export default function AboutPage() {
           <p className='font-semibold tracking-wide text-gray-300 text-md'>
             — Introduction
           </p>
-          <div className='space-y-6  max-h-[60vh] overflow-y-auto scrollbar-thin pr-2'>
+          <div className='space-y-6  max-h-[61vh] overflow-y-auto scrollbar-thin pr-2'>
             <h1 className='text-5xl font-semibold leading-tight text-balance sm:text-6xl'>
               Software Engineer based in Michigan
             </h1>
 
             <p className='text-lg leading-relaxed text-gray-300/90'>
-              I’m a software engineer with a genuine passion for building things
-              that are both functional and beautiful. For me, writing code isn’t
-              just about solving problems... It’s also about crafting
-              experiences that feel intuitive, engaging, and impactful. I’m
-              driven by the challenge of turning ideas into something people can
-              see, touch, and use every day.
+              I’m a full stack software engineer with over 4 years proven
+              experience and a genuine passion for building things that are both
+              functional and beautiful. For me, writing code isn’t just about
+              solving problems... It’s also about crafting experiences that feel
+              intuitive, engaging, and impactful. I’m driven by the challenge of
+              turning ideas into something people can see, touch, and use every
+              day.
             </p>
             <p className='text-lg leading-relaxed text-gray-300/90'>
               My work blends technical skill with creativity, allowing me to
               approach projects from both an analytical and imaginative
-              perspective. Whether I’m designing a clean, user-friendly
+              perspective. Whether I’m designing a clean, user friendly
               interface or architecting the logic behind it, I aim to create
               solutions that are not only efficient but also leave a lasting
               impression.
             </p>
 
             <h1 className='text-5xl font-semibold leading-tight text-balance sm:text-6xl'>
-              Hobbies
+              Life Outside of Tech
             </h1>
 
             <p className='text-lg leading-relaxed text-gray-300/90'>
-              paragraph 1
+              Beyond coding, my favorite role is being a husband and dad to two
+              energetic boys. They inspire me every day, and I make it a point
+              to share my hobbies with them whenever I can. Some days that means
+              cooking together or working side by side in the garden. Other
+              times, it’s teaching them how to play guitar, heading out for an
+              afternoon of fishing, or hitting the golf course.
             </p>
             <p className='text-lg leading-relaxed text-gray-300/90'>
-              paragraph 2
+              These moments aren’t just pastimes, they’re opportunities to
+              connect, to laugh, and to pass down values like curiosity,
+              patience, and creativity. Just like in my work, I love seeing
+              ideas come to life but in this case, it’s through shared
+              experiences and the joy of watching them grow.
             </p>
           </div>
 
@@ -48,7 +58,7 @@ export default function AboutPage() {
             <a
               href='https://github.com/jsmith989'
               aria-label='GitHub'
-              className='inline-flex items-center justify-center transition border rounded-full w-11 h-11 text-primary hover:bg-white/10'
+              className='inline-flex items-center justify-center transition border rounded-full w-11 h-11 text-primary hover:bg-white/10 hover:text-amber-700'
             >
               <svg viewBox='0 0 24 24' className='w-6 h-6' fill='currentColor'>
                 <path d='M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.8 10.9.6.1.8-.3.8-.6v-2.3c-3.2.7-3.9-1.5-3.9-1.5-.6-1.5-1.4-1.9-1.4-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 .9 2.2 1.2 1.2 2 3.1 1.4 3.9 1.1.1-.9.5-1.4.9-1.7-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.4-2.7 5.4-5.3 5.7.5.4 1 .9 1 .8v3.2c0 .3.2.7.8.6C20.7 21.4 24 17.1 24 12 24 5.7 18.8.5 12 .5z' />
@@ -57,7 +67,7 @@ export default function AboutPage() {
             <a
               href='https://linkedin.com/in/jordansmith989'
               aria-label='LinkedIn'
-              className='inline-flex items-center justify-center transition border rounded-full w-11 h-11 text-primary hover:bg-white/10'
+              className='inline-flex items-center justify-center transition border rounded-full w-11 h-11 text-primary hover:bg-white/10 hover:text-amber-700'
             >
               <svg viewBox='0 0 24 24' className='w-6 h-6' fill='currentColor'>
                 <path d='M4.98 3.5a2.5 2.5 0 1 1 0 5.001A2.5 2.5 0 0 1 4.98 3.5zM2 9h6v12H2zM9 9h5.6v1.7h.1c.8-1.4 2.3-2.3 4-2.3 4.3 0 5.1 2.8 5.1 6.4V21H18v-5.5c0-1.3-.1-3-2-3-2 0-2.3 1.5-2.3 2.9V21H9z' />
