@@ -1,70 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Love+Light&family=Parisienne&display=swap');
+@config "../tailwind.config.js";
 @import 'tailwindcss';
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  scroll-behavior: smooth;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.bg-textured {
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Cellipse fill='none' stroke-width='4' stroke-opacity='0.48' id='a' rx='600' ry='450'/%3E%3C/defs%3E%3Cg transform='scale(0.892)' style='transform-origin:center'%3E%3Cg style='transform-origin:center'%3E%3Cg transform='rotate(-160 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23E76A0C' href='%23a' transform='rotate(-60 0 0) scale(0.4)'/%3E%3Cuse stroke='%23d96d00' href='%23a' transform='rotate(-50 0 0) scale(0.5)'/%3E%3Cuse stroke='%23cc6f00' href='%23a' transform='rotate(-40 0 0) scale(0.6)'/%3E%3Cuse stroke='%23be7000' href='%23a' transform='rotate(-30 0 0) scale(0.7)'/%3E%3Cuse stroke='%23b17100' href='%23a' transform='rotate(-20 0 0) scale(0.8)'/%3E%3Cuse stroke='%23a57100' href='%23a' transform='rotate(-10 0 0) scale(0.9)'/%3E%3Cuse stroke='%23997000' href='%23a' transform=''/%3E%3Cuse stroke='%238d6f00' href='%23a' transform='rotate(10 0 0) scale(1.1)'/%3E%3Cuse stroke='%23826e00' href='%23a' transform='rotate(20 0 0) scale(1.2)'/%3E%3Cuse stroke='%23776c05' href='%23a' transform='rotate(30 0 0) scale(1.3)'/%3E%3Cuse stroke='%236e6a0d' href='%23a' transform='rotate(40 0 0) scale(1.4)'/%3E%3Cuse stroke='%23646815' href='%23a' transform='rotate(50 0 0) scale(1.5)'/%3E%3Cuse stroke='%235c651b' href='%23a' transform='rotate(60 0 0) scale(1.6)'/%3E%3Cuse stroke='%23536220' href='%23a' transform='rotate(70 0 0) scale(1.7)'/%3E%3Cuse stroke='%234c5f24' href='%23a' transform='rotate(80 0 0) scale(1.8)'/%3E%3Cuse stroke='%23465b28' href='%23a' transform='rotate(90 0 0) scale(1.9)'/%3E%3Cuse stroke='%2340582c' href='%23a' transform='rotate(100 0 0) scale(2)'/%3E%3Cuse stroke='%233b542f' href='%23a' transform='rotate(110 0 0) scale(2.1)'/%3E%3Cuse stroke='%23375031' href='%23a' transform='rotate(120 0 0) scale(2.2)'/%3E%3Cuse stroke='%23334c33' href='%23a' transform='rotate(130 0 0) scale(2.3)'/%3E%3Cuse stroke='%23314834' href='%23a' transform='rotate(140 0 0) scale(2.4)'/%3E%3Cuse stroke='%23304335' href='%23a' transform='rotate(150 0 0) scale(2.5)'/%3E%3Cuse stroke='%232F3F35' href='%23a' transform='rotate(160 0 0) scale(2.6)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.scrollbar-thin::-webkit-scrollbar {
+  width: 9px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #9fcfb074;
+  border-radius: 9999px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background-clip: content-box;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #b4530964;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 font-medium text-white transition rounded-full shadow bg-primary hover:brightness-110;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  .nav-link {
+    @apply relative text-3xl font-medium text-primary hover:text-amber-700;
   }
 }
