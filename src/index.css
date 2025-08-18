@@ -37,7 +37,7 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 font-medium text-white transition rounded-full shadow bg-primary hover:brightness-110;
+    @apply px-4 py-2 font-medium rounded-full bg-primary hover:cursor-pointer hover:bg-amber-700;
   }
   .nav-link {
     @apply relative text-3xl font-medium text-primary hover:text-amber-700;

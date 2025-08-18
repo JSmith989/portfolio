@@ -6,6 +6,7 @@ export type Post = {
   date: string;
   excerpt: string;
   content: string;
+  number: number;
 };
 
 type Attrs = {
@@ -25,9 +26,20 @@ export function loadPosts(): Post[] {
     const excerpt =
       attributes.excerpt ?? body.trim().split('\n\n')[0].slice(0, 180) + '…';
 
-    return { slug, title, date, excerpt, content: body };
+    return {
+      slug,
+      title,
+      date,
+      excerpt,
+      content: body,
+      number: 0,
+    };
   });
 
   posts.sort((a, b) => Date.parse(b.date || '0') - Date.parse(a.date || '0'));
-  return posts;
+
+  return posts.map((post, i) => ({
+    ...post,
+    number: posts.length - i,
+  }));
 }

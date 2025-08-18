@@ -1,5 +1,6 @@
 import AboutPage from '../about/AboutPage';
 import BlogPage from '../blog/BlogPage';
+import Footer from '../footer/Footer';
 import ProjectsPage from '../projects/ProjectsPage';
 
 export default function HomePage() {
@@ -10,6 +11,8 @@ export default function HomePage() {
       <ProjectsPage />
 
       <BlogPage />
+
+      <Footer />
     </div>
   );
 }
