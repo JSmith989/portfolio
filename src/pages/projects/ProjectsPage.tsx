@@ -1,159 +1,221 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search } from 'lucide-react';
+import {
+  Calendar,
+  Building2,
+  Link as LinkIcon,
+  ChevronDown,
+} from 'lucide-react';
 
-type Skill = {
-  name: string;
-  category: string;
-  level?: 1 | 2 | 3 | 4 | 5;
+type Project = {
+  title: string;
+  company?: string;
+  role?: string;
+  period?: string;
+  summary: string;
+  highlights: string[];
+  impact?: string[];
+  stack: string[];
+  links?: { label: string; href: string }[];
+  image?: string;
 };
 
-const SKILLS: Skill[] = [
-  // Languages
-  { name: 'JavaScript', category: 'Languages', level: 5 },
-  { name: 'TypeScript', category: 'Languages', level: 5 },
-  { name: 'C#', category: 'Languages', level: 3 },
-  { name: 'SQL', category: 'Languages', level: 4 },
-  { name: 'Python', category: 'Languages', level: 2 },
-  { name: 'HTML', category: 'Languages', level: 5 },
-  { name: 'CSS', category: 'Languages', level: 5 },
-  { name: 'Sass', category: 'Languages', level: 4 },
-
-  // Frontend
-  { name: 'React', category: 'Frontend', level: 5 },
-  { name: 'React Query', category: 'Frontend', level: 4 },
-  { name: 'Redux', category: 'Frontend', level: 4 },
-  { name: 'Tailwind', category: 'Frontend', level: 5 },
-  { name: 'Bootstrap', category: 'Frontend', level: 3 },
-  { name: 'Vite', category: 'Frontend', level: 4 },
-  { name: 'Webpack', category: 'Frontend', level: 3 },
-
-  // Backend
-  { name: 'Node.js', category: 'Backend', level: 4 },
-  { name: 'Express.js', category: 'Backend', level: 4 },
-  { name: 'ASP.NET', category: 'Backend', level: 4 },
-  { name: 'REST APIs', category: 'Backend', level: 5 },
-  { name: 'GraphQL', category: 'Backend', level: 2 },
-
-  // Cloud & DevOps
-  { name: 'AWS', category: 'Cloud & DevOps', level: 3 },
-  { name: 'Azure', category: 'Cloud & DevOps', level: 3 },
-  { name: 'Firebase', category: 'Cloud & DevOps', level: 4 },
-
-  // Tools
-  { name: 'Git', category: 'Tools', level: 5 },
-  { name: 'GitHub', category: 'Tools', level: 5 },
-  { name: 'Jira', category: 'Tools', level: 4 },
-  { name: 'Asana', category: 'Tools', level: 3 },
-  { name: 'Postman', category: 'Tools', level: 4 },
-  { name: 'ESLint', category: 'Tools', level: 4 },
-  { name: 'Prettier', category: 'Tools', level: 5 },
-  { name: 'Yarn', category: 'Tools', level: 3 },
-  { name: 'npm', category: 'Tools', level: 5 },
-
-  // Other
-  { name: 'Power Platform', category: 'Other', level: 3 },
-  { name: 'Retool', category: 'Other', level: 4 },
-  { name: 'WordPress', category: 'Other', level: 1 },
-  { name: 'Figma', category: 'Other', level: 3 },
+const PROJECTS: Project[] = [
+  {
+    title: 'Internal Claim Auditing App',
+    company: 'HealthLock',
+    role: 'Software Engineer',
+    period: '2021 – 2025',
+    summary:
+      'Full‑featured auditor dashboard for claims analysis, real‑time flagging, and end‑to‑end case management. Replaced legacy spreadsheets and unified workflows.',
+    highlights: [
+      'Real‑time claim flagging + adjustable analytics',
+      'Reusable React component library for consistent UI',
+      'Retool‑embedded dashboards as a Power BI replacement',
+    ],
+    impact: [
+      'Cut average claim processing time by ~50%',
+      'Used daily by 40+ auditors and account managers',
+    ],
+    stack: [
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Redux Toolkit',
+      'React Query',
+      '.NET (C#)',
+      'SQL',
+      'Retool',
+    ],
+    links: [],
+  },
+  {
+    title: 'Firm Onboarding Portal',
+    company: 'HealthLock',
+    role: 'Software Engineer (Solo dev on v1)',
+    period: '2021 – 2025',
+    summary:
+      'Self‑service portal streamlining partner onboarding, contract approval, and automated billing. First version built end‑to‑end as a solo project.',
+    highlights: [
+      'Automated billing + approval workflows',
+      'Replaced ad‑hoc email + spreadsheets',
+    ],
+    impact: ['Reduced onboarding cycle from weeks to days'],
+    stack: ['React', 'JavaScript', 'Tailwind', '.NET (C#)', 'SQL'],
+    links: [],
+  },
+  {
+    title: 'Language Scheduling Widget',
+    company: 'Talk Abroad',
+    role: 'Contract Software Engineer',
+    period: 'May 2024 (4 mo contract)',
+    summary:
+      'Modular scheduling widget enabling students to book language‑practice sessions across time zones with live availability.',
+    highlights: [
+      'Dynamic availability w/ time‑zone normalization',
+      'Partner profile cards + booking flow',
+    ],
+    impact: ['Rolled out to 500+ universities'],
+    stack: ['React', 'TypeScript', 'Tailwind', 'CakePHP'],
+    links: [],
+  },
 ];
 
-const CATEGORIES = [
-  'All',
-  'Languages',
-  'Frontend',
-  'Backend',
-  'Cloud & DevOps',
-  'Other',
-];
+function classNames(...xs: (string | false | undefined)[]) {
+  return xs.filter(Boolean).join(' ');
+}
 
-function LevelBar({ level = 3 }: { level?: Skill['level'] }) {
-  const pct = (level / 5) * 100;
+function Tech({ label }: { label: string }) {
   return (
-    <div className='w-full h-2 overflow-hidden bg-gray-600 rounded-full'>
-      <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: `${pct}%` }}
-        transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-        className='h-full rounded-full bg-gradient-to-r from-primary to-amber-700'
-      />
-    </div>
+    <span className='rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-gray-200 border border-white/10'>
+      {label}
+    </span>
+  );
+}
+
+function ProjectCard({ p }: { p: Project }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.article
+      layout
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.2 }}
+      className='relative p-5 overflow-hidden border group rounded-2xl bg-white/10 backdrop-blur-md border-white/20'
+    >
+      <div className='flex items-start justify-between gap-4 mb-3'>
+        <div>
+          <h3 className='text-lg font-semibold text-white'>{p.title}</h3>
+          <div className='flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-300'>
+            {p.company && (
+              <span className='inline-flex items-center gap-1'>
+                <Building2 className='h-3.5 w-3.5' /> {p.company}
+              </span>
+            )}
+            {p.period && (
+              <span className='inline-flex items-center gap-1'>
+                <Calendar className='h-3.5 w-3.5' /> {p.period}
+              </span>
+            )}
+          </div>
+        </div>
+        {!!(p.links && p.links.length) && (
+          <div className='flex items-center gap-2'>
+            {p.links?.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target='_blank'
+                rel='noreferrer'
+                className='inline-flex items-center gap-1 px-2 py-1 text-xs text-gray-200 border rounded-md border-white/10 bg-white/10 hover:bg-white/20'
+              >
+                <LinkIcon className='h-3.5 w-3.5' /> {l.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <p className='text-sm text-gray-200/90'>{p.summary}</p>
+
+      <div className='mt-4 flex flex-wrap gap-1.5'>
+        {p.stack.map((s) => (
+          <Tech key={s} label={s} />
+        ))}
+      </div>
+
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className='inline-flex items-center gap-2 mt-4 text-sm text-indigo-300 hover:text-indigo-200 hover:cursor-pointer'
+        aria-expanded={open}
+        aria-controls={`details-${p.title}`}
+      >
+        <ChevronDown
+          className={classNames(
+            'h-4 w-4 transition-transform',
+            open ? 'rotate-180' : 'rotate-0',
+          )}
+        />
+        {open ? 'Hide details' : 'Show details'}
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id={`details-${p.title}`}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className='overflow-hidden'
+          >
+            <div className='grid grid-cols-1 gap-3 mt-3 md:grid-cols-2'>
+              <ul className='pl-5 text-sm list-disc text-gray-200/90'>
+                {p.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+              {p.impact && p.impact.length > 0 && (
+                <ul className='pl-5 text-sm list-disc text-gray-200/90'>
+                  {p.impact.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.article>
   );
 }
 
 export default function ProjectsPage() {
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('All');
-
-  const filtered = useMemo(() => {
-    const q = query.toLowerCase();
-    return SKILLS.filter(
-      (s) =>
-        (category === 'All' || s.category === category) &&
-        (q === '' || s.name.toLowerCase().includes(q)),
-    ).sort((a, b) => (b.level || 0) - (a.level || 0));
-  }, [query, category]);
-
   return (
-    <section className='sm:mx-20'>
-      <h2 className='mb-4 text-4xl font-bold text-white'>Skills</h2>
-
-      <div className='flex flex-col gap-3 mb-6 md:flex-row md:items-center'>
-        <div className='relative w-full md:max-w-sm'>
-          <Search className='absolute z-40 w-4 h-4 text-white -translate-y-1/2 left-3 top-1/2' />
-          <input
-            type='text'
-            placeholder='Search skills…'
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className='w-full py-2 pr-3 text-white rounded bg-white/10 backdrop-blur-md border-white/20 pl-9 placeholder:text-white'
-          />
-        </div>
-        <div className='flex flex-wrap gap-2'>
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCategory(c)}
-              className={`px-3 py-1 rounded-full text-sm ${
-                category === c
-                  ? 'bg-primary'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-              } hover:cursor-pointer transition`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-      </div>
+    <section id='projects' className='pb-16 sm:mx-20'>
+      <header className='mb-8'>
+        <h1 className='text-3xl font-bold tracking-tight text-white'>
+          Projects
+        </h1>
+        <p className='max-w-2xl mt-2 text-sm text-gray-300'>
+          A deeper look at the internal tools and apps I built, how I built
+          them, and the measured outcomes.
+        </p>
+      </header>
 
       <AnimatePresence mode='popLayout'>
-        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {filtered
-            .slice()
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map((skill) => (
-              <motion.div
-                key={skill.name}
-                layout
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-                className='p-4 border rounded-lg bg-white/10 backdrop-blur-3xl border-white/20'
-              >
-                <div className='flex justify-between mb-2'>
-                  <h3 className='text-lg font-semibold text-white'>
-                    {skill.name}
-                  </h3>
-                  <span className='text-xs text-gray-300'>
-                    {skill.category}
-                  </span>
-                </div>
-                <LevelBar level={skill.level} />
-              </motion.div>
-            ))}
+        <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
+          {PROJECTS.map((p) => (
+            <ProjectCard key={p.title} p={p} />
+          ))}
         </div>
       </AnimatePresence>
+
+      <p className='mt-10 text-xs text-gray-400'>
+        *Some projects are internal and not publicly accessible; descriptions
+        focus on architecture and outcomes.
+      </p>
     </section>
   );
 }

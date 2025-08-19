@@ -1,9 +1,6 @@
 export default function AboutPage() {
   return (
-    <section
-      id='about'
-      className='relative min-h-[100svh] px-6 sm:px-8 lg:px-12 '
-    >
+    <section id='about' className='relative min-h-[100svh] sm:mx-20'>
       <div className='grid items-center grid-cols-12 mx-auto max-w-7xl gap-y-16'>
         <div className='col-span-12 py-4 space-y-6 text-gray-100 rounded-3xl backdrop-blur-[3px] bg-black/5 lg:col-span-6 xl:col-span-5'>
           <h2 className='text-5xl sm:text-6xl text-primary'>Jordan Smith</h2>

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className='pt-6 pb-4 mt-12 text-sm text-center text-gray-400 border-t border-primary'>
+    <footer className='pt-6 pb-4 mx-20 mt-12 text-sm text-center text-gray-400 border-t border-primary'>
       <nav className='flex justify-center gap-6 mb-3'>
         <a href='#about' className='hover:text-white'>
           About
