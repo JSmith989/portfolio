@@ -5,6 +5,7 @@ import {
   Building2,
   Link as LinkIcon,
   ChevronDown,
+  Briefcase,
 } from 'lucide-react';
 
 type Project = {
@@ -26,16 +27,19 @@ const PROJECTS: Project[] = [
     company: 'HealthLock',
     role: 'Software Engineer',
     period: '2021 – 2025',
-    summary:
-      'Full‑featured auditor dashboard for claims analysis, real‑time flagging, and end‑to‑end case management. Replaced legacy spreadsheets and unified workflows.',
+    summary: `Claim workflow for teams, managers, and individual auditors. Users see only their members, member's claims, individual member claim info, and personal KPI dashboard modeled after Power BI. Auditors work claims end-to-end with integrated messaging, faxing, claim flagging and NPI search.`,
     highlights: [
-      'Real‑time claim flagging + adjustable analytics',
-      'Reusable React component library for consistent UI',
-      'Retool‑embedded dashboards as a Power BI replacement',
+      'Teams & roles: managers, teams, and individual logins with scoped data access (RBAC)',
+      'Personalized dashboards: KPIs, member lists, claims, high value claims, provider lookups',
+      'Claims workbench: triage, notes, attachments, adjudication steps, history audit trail',
+      'Comms hub: internal/external messaging, templated emails, and fax sending',
+      'Provider tools: live NPI/provider lookup with profile details',
+      'Analytics: real-time flagging + adjustable filters; embedded Retool reports',
     ],
     impact: [
-      'Cut average claim processing time by ~50%',
-      'Used daily by 40+ auditors and account managers',
+      'Cut average claim processing time by over 50%',
+      'Adopted by 40+ auditors and account managers daily',
+      'Replaced fragmented spreadsheets with a unified workflow',
     ],
     stack: [
       'React',
@@ -49,16 +53,17 @@ const PROJECTS: Project[] = [
     ],
     links: [],
   },
+
   {
     title: 'Firm Onboarding Portal',
     company: 'HealthLock',
     role: 'Software Engineer (Solo dev on v1)',
     period: '2021 – 2025',
     summary:
-      'Self‑service portal streamlining partner onboarding, contract approval, and automated billing. First version built end‑to‑end as a solo project.',
+      'A portal for streamlining partner onboarding, contract documentation and approval, automated billing, and individual integration to the claim auditing app. First version built end‑to‑end was my first solo project at HealthLock.',
     highlights: [
       'Automated billing + approval workflows',
-      'Replaced ad‑hoc email + spreadsheets',
+      'Replaced email + spreadsheets',
     ],
     impact: ['Reduced onboarding cycle from weeks to days'],
     stack: ['React', 'JavaScript', 'Tailwind', '.NET (C#)', 'SQL'],
@@ -70,7 +75,7 @@ const PROJECTS: Project[] = [
     role: 'Contract Software Engineer',
     period: 'May 2024 (4 mo contract)',
     summary:
-      'Modular scheduling widget enabling students to book language‑practice sessions across time zones with live availability.',
+      'Modular scheduling widget enabling students to book language practice sessions across time zones with live availability and profile cards',
     highlights: [
       'Dynamic availability w/ time‑zone normalization',
       'Partner profile cards + booking flow',
@@ -111,6 +116,11 @@ function ProjectCard({ p }: { p: Project }) {
             {p.company && (
               <span className='inline-flex items-center gap-1'>
                 <Building2 className='h-3.5 w-3.5' /> {p.company}
+              </span>
+            )}
+            {p.company && (
+              <span className='inline-flex items-center gap-1'>
+                <Briefcase className='h-3.5 w-3.5' /> Software Engineer
               </span>
             )}
             {p.period && (
@@ -191,12 +201,12 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
-export default function ProjectsPage() {
+export default function ExperiencePage() {
   return (
-    <section id='projects' className='pb-16 sm:mx-20'>
+    <section id='projects' className='pb-16 sm:mx-20 scroll-mt-16'>
       <header className='mb-8'>
         <h1 className='text-3xl font-bold tracking-tight text-white'>
-          Projects
+          Experience
         </h1>
         <p className='max-w-2xl mt-2 text-sm text-gray-300'>
           A deeper look at the internal tools and apps I built, how I built
@@ -205,9 +215,14 @@ export default function ProjectsPage() {
       </header>
 
       <AnimatePresence mode='popLayout'>
-        <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
+        <div className='space-y-5 lg:flex md:flex-wrap lg:gap-x-5'>
           {PROJECTS.map((p) => (
-            <ProjectCard key={p.title} p={p} />
+            <article
+              key={p.title}
+              className='w-full lg:w-[calc(50%-0.625rem)] min'
+            >
+              <ProjectCard p={p} />
+            </article>
           ))}
         </div>
       </AnimatePresence>

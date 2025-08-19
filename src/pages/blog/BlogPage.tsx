@@ -24,7 +24,7 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <section id="blog" className="relative min-h-screen pt-24 mx-6 sm:mx-20">
+    <section id="blog" className="relative min-h-screen mx-6 sm:mx-20 scroll-mt-16">
       <h2 className="mb-4 text-4xl font-bold text-white">Blog</h2>
       <p className="mb-12 text-gray-300">
         Sharing ideas, lessons, and thoughts on coding & life.
@@ -65,16 +65,16 @@ export default function BlogPage() {
 
 {activePost && (
   <div role="dialog" aria-modal="true" className="fixed inset-0 z-50">
-    {/* Backdrop */}
+ 
     <button
       className="absolute inset-0 bg-black/70 backdrop-blur-sm"
       onClick={() => setActivePost(null)}
       aria-label="Close article"
     />
 
-    {/* Center wrapper */}
+
     <div className="relative flex items-center justify-center p-4 h-dvh sm:p-6">
-      {/* PANEL */}
+
       <div
         className="
           relative w-full max-w-4xl pointer-events-auto
@@ -83,7 +83,7 @@ export default function BlogPage() {
           max-h-[90svh] flex flex-col
         "
       >
-        {/* HEADER (always visible) */}
+
         <div className="sticky top-0 z-10 flex-none bg-black/60 backdrop-blur-xl rounded-t-2xl">
           <div className="flex items-start justify-between gap-6 px-6 py-4">
             <div>
@@ -96,7 +96,7 @@ export default function BlogPage() {
           <hr className="border-white/10" />
         </div>
 
-        {/* BODY (only this scrolls) */}
+       
         <div
           className="flex-1 px-6 py-6 pb-10 overflow-y-auto prose prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary hover:prose-a:text-amber-400 prose-strong:text-white prose-blockquote:border-l-primary/60 prose-blockquote:text-gray-300 prose-code:text-emerald-300 prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg prose-li:marker:text-primary scrollbar-thin"
         >

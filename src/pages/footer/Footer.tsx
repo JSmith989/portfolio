@@ -9,7 +9,7 @@ export default function Footer() {
           Blog
         </a>
         <a href='#projects' className='hover:text-white'>
-          Projects
+          Experience
         </a>
         <a href='mailto:jordansmith989@gmail.com' className='hover:text-white'>
           Contact

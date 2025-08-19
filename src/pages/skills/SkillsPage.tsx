@@ -75,7 +75,7 @@ function LevelBar({ level = 3 }: { level?: Skill['level'] }) {
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: `${pct}%` }}
-        transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+        transition={{ type: 'spring', stiffness: 120, damping: 40 }}
         className='h-full rounded-full bg-gradient-to-r from-primary to-amber-700'
       />
     </div>
@@ -96,7 +96,7 @@ export default function SkillsPage() {
   }, [query, category]);
 
   return (
-    <section id='skills' className='pb-16 sm:mx-20'>
+    <section id='skills' className='pb-16 sm:mx-20 scroll-mt-16'>
       <h2 className='mb-4 text-4xl font-bold text-white'>Skills</h2>
 
       <div className='flex flex-col gap-3 mb-6 md:flex-row md:items-center'>
