@@ -2,11 +2,18 @@ export default function AboutPage() {
   return (
     <section
       id='about'
-      className='relative min-h-[100svh] px-6 sm:px-8 lg:px-12 '
+      className='relative min-h-[100svh] mx-2 sm:mx-10 md:mx-20 scroll-mt-16'
     >
       <div className='grid items-center grid-cols-12 mx-auto max-w-7xl gap-y-16'>
-        <div className='col-span-12 py-4 space-y-6 text-gray-100 rounded-3xl bg-black/40 lg:col-span-6 xl:col-span-5'>
-          <h2 className='text-5xl sm:text-6xl text-primary'>Jordan Smith</h2>
+        <div className='col-span-12 py-4 space-y-6 text-gray-100 rounded-3xl backdrop-blur-[3px] bg-black/5 lg:col-span-6 '>
+          <div className='flex items-center justify-between'>
+            <h2 className='text-5xl sm:text-6xl text-primary'>Jordan Smith</h2>
+            <img
+              src='/7.jpeg'
+              alt='Jordan Smith'
+              className='object-cover mr-6 rounded-full shadow-md lg:hidden size-20 ring-2 ring-amber-700'
+            />
+          </div>
           <p className='font-semibold tracking-wide text-gray-300 text-md'>
             — Introduction
           </p>
@@ -73,18 +80,39 @@ export default function AboutPage() {
                 <path d='M4.98 3.5a2.5 2.5 0 1 1 0 5.001A2.5 2.5 0 0 1 4.98 3.5zM2 9h6v12H2zM9 9h5.6v1.7h.1c.8-1.4 2.3-2.3 4-2.3 4.3 0 5.1 2.8 5.1 6.4V21H18v-5.5c0-1.3-.1-3-2-3-2 0-2.3 1.5-2.3 2.9V21H9z' />
               </svg>
             </a>
+
+            <a
+              href='mailto:jordansmith989@gmail.com'
+              aria-label='Contact'
+              className='inline-flex items-center justify-center transition border rounded-full w-11 h-11 text-primary hover:bg-white/10 hover:text-amber-700'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='currentColor'
+                className='w-6 h-6'
+              >
+                <path
+                  fill-rule='evenodd'
+                  d='M17.834 6.166a8.25 8.25 0 1 0 0 11.668.75.75 0 0 1 1.06 1.06c-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788 3.807-3.808 9.98-3.808 13.788 0A9.722 9.722 0 0 1 21.75 12c0 .975-.296 1.887-.809 2.571-.514.685-1.28 1.179-2.191 1.179-.904 0-1.666-.487-2.18-1.164a5.25 5.25 0 1 1-.82-6.26V8.25a.75.75 0 0 1 1.5 0V12c0 .682.208 1.27.509 1.671.3.401.659.579.991.579.332 0 .69-.178.991-.579.3-.4.509-.99.509-1.671a8.222 8.222 0 0 0-2.416-5.834ZM15.75 12a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0Z'
+                  clip-rule='evenodd'
+                />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div className='relative col-span-12 lg:col-span-6 xl:col-span-7'>
-          <div className='absolute inset-y-0 right-0 hidden pointer-events-none left-1/3 lg:block' />
-
+        <div className='hidden col-span-12 lg:block lg:col-span-6'>
           <img
-            src='/self.png'
+            src='/5.jpg'
             alt='Jordan Smith portrait'
-            className='relative z-10 mx-auto lg:ml-auto max-w-[500px] w-full object-contain '
-            width={520}
-            height={640}
+            className='
+      ml-6 xl:ml-auto
+      w-full sm:min-w-[360px] max-w-[540px]
+      rounded-3xl border-[3px] border-amber-700
+      object-contain aspect-3/5]   /* keeps nice portrait ratio, no crop */
+      bg-black/10                   /* optional subtle frame */
+    '
             loading='eager'
           />
         </div>
