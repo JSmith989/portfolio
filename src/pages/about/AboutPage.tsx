@@ -11,7 +11,7 @@ export default function AboutPage() {
             <img
               src='/7.jpeg'
               alt='Jordan Smith'
-              className='object-cover mr-6 rounded-full shadow-md lg:hidden size-20 ring-2 ring-amber-700'
+              className='object-cover mr-6 rounded-full shadow-md lg:hidden size-12 sm:size-20 ring-2 ring-amber-700'
             />
           </div>
           <p className='font-semibold tracking-wide text-gray-300 text-md'>
