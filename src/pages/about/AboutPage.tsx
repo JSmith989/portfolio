@@ -2,11 +2,18 @@ export default function AboutPage() {
   return (
     <section
       id='about'
-      className='relative min-h-[100svh] sm:mx-20 scroll-mt-16'
+      className='relative min-h-[100svh] mx-2 sm:mx-10 md:mx-20 scroll-mt-16'
     >
       <div className='grid items-center grid-cols-12 mx-auto max-w-7xl gap-y-16'>
-        <div className='col-span-12 py-4 space-y-6 text-gray-100 rounded-3xl backdrop-blur-[3px] bg-black/5 lg:col-span-6 xl:col-span-5'>
-          <h2 className='text-5xl sm:text-6xl text-primary'>Jordan Smith</h2>
+        <div className='col-span-12 py-4 space-y-6 text-gray-100 rounded-3xl backdrop-blur-[3px] bg-black/5 lg:col-span-6 '>
+          <div className='flex items-center justify-between'>
+            <h2 className='text-5xl sm:text-6xl text-primary'>Jordan Smith</h2>
+            <img
+              src='/7.jpeg'
+              alt='Jordan Smith'
+              className='object-cover mr-6 rounded-full shadow-md lg:hidden size-20 ring-2 ring-amber-700'
+            />
+          </div>
           <p className='font-semibold tracking-wide text-gray-300 text-md'>
             — Introduction
           </p>
@@ -95,15 +102,17 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className='relative col-span-12 lg:col-span-6 xl:col-span-7'>
-          <div className='absolute inset-y-0 right-0 hidden pointer-events-none left-1/3 lg:block' />
-
+        <div className='hidden col-span-12 lg:block lg:col-span-6'>
           <img
-            src='/self.png'
+            src='/5.jpg'
             alt='Jordan Smith portrait'
-            className='relative z-10 mx-auto lg:ml-auto max-w-[500px] w-full object-contain '
-            width={520}
-            height={640}
+            className='
+      ml-6 xl:ml-auto
+      w-full sm:min-w-[360px] max-w-[540px]
+      rounded-3xl border-[3px] border-amber-700
+      object-contain aspect-3/5]   /* keeps nice portrait ratio, no crop */
+      bg-black/10                   /* optional subtle frame */
+    '
             loading='eager'
           />
         </div>

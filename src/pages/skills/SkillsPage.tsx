@@ -96,7 +96,7 @@ export default function SkillsPage() {
   }, [query, category]);
 
   return (
-    <section id='skills' className='pb-16 sm:mx-20 scroll-mt-16'>
+    <section id='skills' className='pb-16 mx-2 sm:mx-10 md:mx-20 scroll-mt-16'>
       <h2 className='mb-4 text-4xl font-bold text-white'>Skills</h2>
 
       <div className='flex flex-col gap-3 mb-6 md:flex-row md:items-center'>

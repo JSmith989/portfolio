@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
     company: 'HealthLock',
     role: 'Software Engineer',
     period: '2021 – 2025',
-    summary: `Claim workflow for teams, managers, and individual auditors. Users see only their members, member's claims, individual member claim info, and personal KPI dashboard modeled after Power BI. Auditors work claims end-to-end with integrated messaging, faxing, claim flagging and NPI search.`,
+    summary: `Auditing claim workflow for teams, managers, and individual auditors. Users see only their members, member's claims, individual member claim info, and personal KPI dashboard modeled after Power BI. Auditors work claims end-to-end with integrated messaging, faxing, claim flagging and NPI search.`,
     highlights: [
       'Teams & roles: managers, teams, and individual logins with scoped data access (RBAC)',
       'Personalized dashboards: KPIs, member lists, claims, high value claims, provider lookups',
@@ -203,14 +203,17 @@ function ProjectCard({ p }: { p: Project }) {
 
 export default function ExperiencePage() {
   return (
-    <section id='projects' className='pb-16 sm:mx-20 scroll-mt-16'>
+    <section
+      id='projects'
+      className='pb-16 mx-2 sm:mx-10 md:mx-20 scroll-mt-16'
+    >
       <header className='mb-8'>
         <h1 className='text-3xl font-bold tracking-tight text-white'>
           Experience
         </h1>
         <p className='max-w-2xl mt-2 text-sm text-gray-300'>
-          A deeper look at the internal tools and apps I built, how I built
-          them, and the measured outcomes.
+          A deeper look at the apps I built, how I built them, and the measured
+          outcomes.
         </p>
       </header>
 

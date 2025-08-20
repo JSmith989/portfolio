@@ -24,7 +24,7 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <section id="blog" className="relative min-h-screen mx-6 sm:mx-20 scroll-mt-16">
+    <section id="blog" className="relative min-h-screen mx-2 sm:mx-10 md:mx-20 scroll-mt-16">
       <h2 className="mb-4 text-4xl font-bold text-white">Blog</h2>
       <p className="mb-12 text-gray-300">
         Sharing ideas, lessons, and thoughts on coding & life.
@@ -57,7 +57,7 @@ export default function BlogPage() {
   
       <a
         href="#top"
-        className="fixed z-40 p-3 text-black transition rounded-full shadow-lg bottom-6 right-6 bg-primary hover:bg-amber-700"
+        className="fixed z-40 px-3 py-1.5 text-black text-xl transition rounded-full shadow-lg bottom-6 right-6 bg-primary hover:bg-amber-700"
         aria-label="Back to top"
       >
         ↑
