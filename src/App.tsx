@@ -7,7 +7,6 @@ const HomePage = lazy(() => import('./pages/home/HomePage'));
 function App() {
   return (
     <div className=''>
-      {/* <div className='bg-background bg-textured'> */}
       <Navbar />
 
       <main className='min-h-[calc(100vh-4rem)] '>

@@ -28,7 +28,6 @@ html {
   background-size: cover;
 }
 
-/* Optional: slightly reduce \"zoom\" on very tall portrait screens */
 @media (max-aspect-ratio: 3/4) {
   .bg-layer {
     background-size: auto 110%;
