@@ -17,7 +17,7 @@ export default function AboutPage() {
           <p className='font-semibold tracking-wide text-gray-300 text-md'>
             — Introduction
           </p>
-          <div className='space-y-6 max-h-[45vh]  sm:max-h-[61vh] overflow-y-scroll scrollbar-thin pr-2'>
+          <div className='space-y-6 max-h-[50vh]  sm:max-h-[61vh] overflow-y-scroll scrollbar-thin pr-2'>
             <h1 className='text-3xl font-semibold leading-tight text-balance sm:text-4xl'>
               Software Engineer based in Michigan
             </h1>

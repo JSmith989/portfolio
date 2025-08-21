@@ -43,6 +43,13 @@ html {
   }
 }
 
+@media (max-aspect-ratio: 3/4) {
+  .bg-textured {
+    background-size: auto 130%; /* height drives size; tweak 120–150% */
+    background-position: 50% 35%;
+  }
+}
+
 @layer components {
   .btn-primary {
     @apply px-4 py-2 font-medium rounded-full bg-primary hover:cursor-pointer hover:bg-amber-700;
