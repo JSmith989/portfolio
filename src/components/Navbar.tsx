@@ -2,18 +2,42 @@ export default function Navbar() {
   return (
     <header className='max-w-[90rem] sm:mx-20 mx-6 flex md:justify-end justify-center'>
       <nav className='py-8'>
-        <div className='grid px-6 space-x-12 md:block'>
-          <a href='#about' className='nav-link'>
-            About <span className='text-4xl text-primary'>.</span>
+        <div className='px-6 space-x-4 sm:space-x-12 '>
+          <a
+            href='#about'
+            className='inline-flex items-baseline nav-link whitespace-nowrap'
+          >
+            About{' '}
+            <span className='ml-1 align-baseline sm:text-4xl text-primary'>
+              .
+            </span>
           </a>
-          <a href='#skills' className='nav-link'>
-            Skills <span className='text-4xl text-primary'>.</span>
+          <a
+            href='#skills'
+            className='inline-flex items-baseline nav-link whitespace-nowrap'
+          >
+            Skills{' '}
+            <span className='ml-1 align-baseline sm:text-4xl text-primary'>
+              .
+            </span>
           </a>
-          <a href='#projects' className='nav-link'>
-            Experience <span className='text-4xl text-primary'>.</span>
+          <a
+            href='#projects'
+            className='inline-flex items-baseline nav-link whitespace-nowrap'
+          >
+            Experience{' '}
+            <span className='ml-1 align-baseline sm:text-4xl text-primary'>
+              .
+            </span>
           </a>
-          <a href='#blog' className='nav-link'>
-            Blog <span className='text-4xl text-primary'>.</span>
+          <a
+            href='#blog'
+            className='inline-flex items-baseline nav-link whitespace-nowrap'
+          >
+            Blog{' '}
+            <span className='ml-1 align-baseline sm:text-4xl text-primary'>
+              .
+            </span>
           </a>
         </div>
       </nav>
