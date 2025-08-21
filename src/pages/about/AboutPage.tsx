@@ -2,12 +2,12 @@ export default function AboutPage() {
   return (
     <section
       id='about'
-      className='relative min-h-[100svh] mx-6 sm:mx-10 md:mx-20 scroll-mt-16'
+      className='relative pb-16 mx-6 sm:mx-10 md:mx-20 scroll-mt-16'
     >
       <div className='grid items-center grid-cols-12 mx-auto max-w-7xl gap-y-16'>
         <div className='col-span-12 py-4 space-y-6 text-gray-100 rounded-3xl backdrop-blur-[3px] bg-black/5 lg:col-span-6 '>
           <div className='flex items-center justify-between'>
-            <h2 className='text-5xl sm:text-6xl text-primary'>Jordan Smith</h2>
+            <h2 className='text-3xl sm:text-5xl text-primary'>Jordan Smith</h2>
             <img
               src='/7.jpeg'
               alt='Jordan Smith'
@@ -18,7 +18,7 @@ export default function AboutPage() {
             — Introduction
           </p>
           <div className='space-y-6  max-h-[61vh] overflow-y-auto scrollbar-thin pr-2'>
-            <h1 className='text-5xl font-semibold leading-tight text-balance sm:text-6xl'>
+            <h1 className='text-3xl font-semibold leading-tight text-balance sm:text-4xl'>
               Software Engineer based in Michigan
             </h1>
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
               impression.
             </p>
 
-            <h1 className='text-5xl font-semibold leading-tight text-balance sm:text-6xl'>
+            <h1 className='text-3xl font-semibold leading-tight text-balance sm:text-4xl'>
               Life Outside of Tech
             </h1>
 

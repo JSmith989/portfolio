@@ -1,8 +1,8 @@
 export default function Navbar() {
   return (
-    <header className='max-w-[90rem] sm:mx-20 mx-6 flex md:justify-end justify-center'>
+    <header className='max-w-[90rem] sm:mx-20 flex md:justify-end justify-center'>
       <nav className='py-8'>
-        <div className='px-6 space-x-4 sm:space-x-12 '>
+        <div className='space-x-4 sm:px-6 sm:space-x-12 '>
           <a
             href='#about'
             className='inline-flex items-baseline nav-link whitespace-nowrap'
